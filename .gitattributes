@@ -1,0 +1,5 @@
+* text=auto
+
+# Ignore following folder/file.
+/docs               export-ignore
+/LICENSE            export-ignore
