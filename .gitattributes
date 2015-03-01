@@ -1,5 +1,6 @@
 * text=auto
 
 # Ignore following folder/file.
-/docs               export-ignore
-/LICENSE            export-ignore
+/docs           export-ignore
+/.php_cs        export-ignore
+/LICENSE        export-ignore
