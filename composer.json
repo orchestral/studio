@@ -22,5 +22,10 @@
 		"mockery/mockery": "0.9.*",
 		"illuminate/console": "5.0.*"
 	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "3.0-dev"
+		}
+	},
 	"minimum-stability": "dev"
 }
