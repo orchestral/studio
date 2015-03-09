@@ -1,6 +1,4 @@
-# Composer
+# Composer & PHP
 /vendor/*
 /composer.lock
-
-# PHP-CS-Fixer
 .php_cs.cache
