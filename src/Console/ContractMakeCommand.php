@@ -1,27 +1,27 @@
 <?php namespace Orchestra\Studio\Console;
 
-class MenuMakeCommand extends GeneratorCommand
+class ContractMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'make:menu';
+    protected $name = 'make:contract';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = "Create a new Menu handler class";
+    protected $description = "Create a new Contract interface";
 
     /**
      * The type of class being generated.
      *
      * @var string
      */
-    protected $type = 'Menu handler class';
+    protected $type = 'Contract interface';
 
     /**
      * Get the stub file for the generator.
@@ -30,7 +30,7 @@ class MenuMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__.'/../../stubs/menu.stub';
+        return __DIR__.'/../../stubs/contract.stub';
     }
 
     /**
@@ -42,6 +42,6 @@ class MenuMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Http\Handlers';
+        return $rootNamespace.'\Contracts';
     }
 }

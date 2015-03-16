@@ -1,9 +1,9 @@
-<?php namespace {{namespace}};
+<?php namespace DummyNamespace;
 
 use Orchestra\Foundation\Support\MenuHandler;
 use Orchestra\Contracts\Authorization\Authorization;
 
-class {{class}} extends MenuHandler
+class DummyClass extends MenuHandler
 {
     /**
      * Menu configuration.
