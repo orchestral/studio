@@ -31,7 +31,7 @@ class StudioServiceProvider extends ServiceProvider
     public function register()
     {
         foreach (array_keys($this->generators) as $command) {
-            $class = "Orchestra\\Studio\\{$command}Command";
+            $class = "Orchestra\\Studio\\Console\\{$command}Command";
             $name  = $this->generators[$command];
 
             $this->app->singleton($name, $class);
