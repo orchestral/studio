@@ -1,7 +1,6 @@
 <?php namespace Orchestra\Studio;
 
 use Illuminate\Support\ServiceProvider;
-use Orchestra\Studio\Console\MenuMakeCommand;
 
 class StudioServiceProvider extends ServiceProvider
 {
@@ -17,8 +16,11 @@ class StudioServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $commands = [
-        'MenuMake' => 'orchestra.studio.command.menu.make',
+    protected $generators = [
+        'ContractMake'  => 'orchestra.studio.command.contract.make',
+        'FilterMake'    => 'orchestra.studio.command.filter.make',
+        'MenuMake'      => 'orchestra.studio.command.menu.make',
+        'ValidatorMake' => 'orchestra.studio.command.validator.make',
     ];
 
     /**
@@ -28,24 +30,14 @@ class StudioServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        foreach (array_keys($this->commands) as $command) {
-            $method = "register{$command}Command";
-            call_user_func_array([$this, $method], []);
+        foreach (array_keys($this->generators) as $command) {
+            $class = "Orchestra\\Studio\\{$command}Command";
+            $name  = $this->generators[$command];
+
+            $this->app->singleton($name, $class);
         }
 
-        $this->commands(array_values($this->commands));
-    }
-
-    /**
-     * Register the command.
-     *
-     * @return void
-     */
-    protected function registerMenuMakeCommand()
-    {
-        $this->app->singleton($this->commands['MenuMake'], function ($app) {
-            return new MenuMakeCommand($app['files']);
-        });
+        $this->commands(array_values($this->generators));
     }
 
     /**
@@ -55,6 +47,6 @@ class StudioServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array_values($this->commands);
+        return array_values($this->generators);
     }
 }
