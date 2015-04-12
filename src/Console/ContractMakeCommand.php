@@ -14,7 +14,7 @@ class ContractMakeCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $description = "Create a new Contract interface";
+    protected $description = 'Create a new Contract interface';
 
     /**
      * The type of class being generated.

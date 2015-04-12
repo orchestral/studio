@@ -14,7 +14,7 @@ class MenuMakeCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $description = "Create a new Menu handler class";
+    protected $description = 'Create a new Menu handler class';
 
     /**
      * The type of class being generated.

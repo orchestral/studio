@@ -14,7 +14,7 @@ class ValidatorMakeCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $description = "Create a new Validator handler class";
+    protected $description = 'Create a new Validator handler class';
 
     /**
      * The type of class being generated.
