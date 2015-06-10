@@ -16,7 +16,7 @@ class DummyClass extends MenuHandler
         'title'    => null,
         'link'     => '#',
         'icon'     => null,
-        'extends'  => [],
+        'with'     => [],
     ];
 
     /**
