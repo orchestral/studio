@@ -17,11 +17,12 @@
 	},
 	"require": {
 		"php": ">=5.5.0",
-		"orchestra/support": "3.2.*"
+		"orchestra/support": "~3.2.0",
+		"wikimedia/composer-merge-plugin": "~1.1"
 	},
 	"require-dev": {
 		"mockery/mockery": "0.9.*",
-		"illuminate/console": "5.2.*"
+		"illuminate/console": "~5.2.0"
 	},
 	"extra": {
 		"branch-alias": {
