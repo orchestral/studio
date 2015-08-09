@@ -40,6 +40,6 @@ Add following service providers in `config/app.php`.
 
     // ...
 
-    'Orchestra\Studio\StudioServiceProvider',
+    Orchestra\Studio\StudioServiceProvider::class,
 ],
 ```
