@@ -1,5 +1,7 @@
 @extends('app')
 
+@set_meta('title', 'Reset Password')
+
 @section('content')
 <div class="container">
     <div class="row">

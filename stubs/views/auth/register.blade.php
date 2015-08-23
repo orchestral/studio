@@ -1,5 +1,7 @@
 @extends('app')
 
+@set_meta('title', 'Register')
+
 @section('content')
 <div class="container">
     <div class="row">
