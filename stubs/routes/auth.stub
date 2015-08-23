@@ -1,0 +1,5 @@
+Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function ($router) {
+   $router->get('login', 'AuthenticateController@login');
+   $router->post('login', 'AuthenticateController@attempt');
+   $router->get('logout', 'DeauthenticateController@logout');
+});

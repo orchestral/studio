@@ -44,4 +44,14 @@ class AuthControllerMakeCommand extends PublishCommand
             "{$stub}/views/auth"          => base_path('resources/views/auth'),
         ];
     }
+
+    /**
+     * Get routes file.
+     *
+     * @return array
+     */
+    abstract protected function getRoutesFile()
+    {
+        return __DIR__.'/../../stubs/routes/auth.stub';
+    }
 }

@@ -37,6 +37,22 @@ abstract class PublishCommand extends Command
      */
     public function handle()
     {
+        $this->publishFiles();
+
+        if ($this->option('routes')) {
+            $this->appendRoutes();
+        }
+
+        $this->info('Publishing complete!');
+    }
+
+    /**
+     * Publish files.
+     *
+     * @return void
+     */
+    protected function publishFiles()
+    {
         $paths = (array) $this->publishes();
 
         foreach ($paths as $from => $to) {
@@ -48,8 +64,22 @@ abstract class PublishCommand extends Command
                 $this->error("Can't locate path: <{$from}>");
             }
         }
+    }
 
-        $this->info('Publishing complete!');
+    /**
+     * Appends routes.
+     *
+     * @return void
+     */
+    protected function appendRoutes()
+    {
+        $file = $this->getRoutesFile();
+        $routeFile = app_path('Http/routes.php');
+
+        if ($this->files->exists($routeFile) && $this->files->exists($file)) {
+            $this->files->append($routeFile, $this->buildFile($file));
+            $this->line('<info>Append routes from</info> <comment>['.$file.']</comment>');
+        }
     }
 
     /**
@@ -178,6 +208,7 @@ abstract class PublishCommand extends Command
     {
         return [
             ['force', null, InputOption::VALUE_NONE, 'Overwrite any existing files.'],
+            ['routes', null, InputOption::VALUE_NONE, 'Publish with routes.'],
         ];
     }
 
@@ -187,4 +218,11 @@ abstract class PublishCommand extends Command
      * @return array
      */
     abstract protected function publishes();
+
+    /**
+     * Get routes file.
+     *
+     * @return array
+     */
+    abstract protected function getRoutesFile();
 }
