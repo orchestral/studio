@@ -65,8 +65,11 @@ abstract class PublishCommand extends Command
             return;
         }
 
+        $content = $this->buildFile($from);
+
         $this->createParentDirectory(dirname($to));
-        $this->files->copy($from, $to);
+        $this->files->put($to, $content);
+
         $this->status($from, $to, 'File');
     }
 
@@ -87,7 +90,9 @@ abstract class PublishCommand extends Command
 
         foreach ($manager->listContents('from://', true) as $file) {
             if ($file['type'] === 'file' && (! $manager->has('to://'.$file['path']) || $this->option('force'))) {
-                $manager->put('to://'.$file['path'], $manager->read('from://'.$file['path']));
+                $content = $this->replaceNamespace($manager->read('from://'.$file['path']));
+
+                $manager->put('to://'.$file['path'], $content);
             }
         }
 
@@ -122,6 +127,46 @@ abstract class PublishCommand extends Command
         $to   = str_replace(base_path(), '', realpath($to));
 
         $this->line('<info>Copied '.$type.'</info> <comment>['.$from.']</comment> <info>To</info> <comment>['.$to.']</comment>');
+    }
+
+    /**
+     * Build the file with the given path.
+     *
+     * @param  string  $path
+     *
+     * @return string
+     */
+    protected function buildFile($stub)
+    {
+        $stub = $this->files->get($path);
+
+        return $this->replaceNamespace($stub);
+    }
+
+    /**
+     * Replace the namespace for the given stub.
+     *
+     * @param  string  $stub
+     * @param  string  $name
+     *
+     * @return $this
+     */
+    protected function replaceNamespace($stub, $name)
+    {
+        $stub = str_replace('DummyNamespace', $this->getNamespace(), $stub);
+        $stub = str_replace('DummyRootNamespace', $this->laravel->getNamespace(), $stub);
+
+        return $stub;
+    }
+
+    /**
+     * Get namespace.
+     *
+     * @return string
+     */
+    protected function getNamespace()
+    {
+        return $this->laravel->getNamespace();
     }
 
     /**
