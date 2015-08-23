@@ -137,7 +137,7 @@ abstract class PublishCommand extends Command
      *
      * @return string
      */
-    protected function buildFile($stub)
+    protected function buildFile($path)
     {
         $stub = $this->files->get($path);
 
