@@ -15,6 +15,7 @@ class AuthControllerMakeCommand extends PublishCommand
      * @var string
      */
     protected $description = 'Create auth boilerplate controllers and views';
+
     /**
      * Get actual namespace.
      *
@@ -35,9 +36,9 @@ class AuthControllerMakeCommand extends PublishCommand
         $stub = __DIR__.'/../../stubs';
 
         return [
-            "{$stub}/controllers/auth/authenticate.stub" => app_path('Http/Controllers/Auth/AuthenticateController.php'),
+            "{$stub}/controllers/auth/authenticate.stub"   => app_path('Http/Controllers/Auth/AuthenticateController.php'),
             "{$stub}/controllers/auth/deauthenticate.stub" => app_path('Http/Controllers/Auth/DeauthenticateController.php'),
-            "{$stub}/controllers/auth/register.stub" => app_path('Http/Controllers/Auth/RegisterController.php'),
+            "{$stub}/controllers/auth/register.stub"       => app_path('Http/Controllers/Auth/RegisterController.php'),
 
             "{$stub}/views/auth" => base_path('resources/views/auth'),
         ];
