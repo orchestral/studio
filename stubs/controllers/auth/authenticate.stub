@@ -1,0 +1,103 @@
+<?php namespace DummyNamespace;
+
+use Illuminate\Http\Request;
+use DummyRootNamespace\Http\Controllers\Controller;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Orchestra\Foundation\Processor\AuthenticateUser;
+use Orchestra\Contracts\Auth\Command\ThrottlesLogins as ThrottlesCommand;
+use Orchestra\Contracts\Auth\Listener\AuthenticateUser as AuthenticateListener;
+
+class AuthenticateController extends Controller implements AuthenticateListener
+{
+    /**
+     * Get login path.
+     *
+     * @var string
+     */
+    protected $loginPath = 'app::auth/login';
+
+    /**
+     * Create a new authentication controller instance.
+     */
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
+    /**
+     * Show the application login form.
+     *
+     * @return mixed
+     */
+    public function getLogin()
+    {
+        return view('auth.login');
+    }
+
+    /**
+     * Show the application login form.
+     *
+     * @param  \Orchestra\Foundation\Processor\AuthenticateUser  $authenticator
+     * @param  \Illuminate\Http\Request  $request
+     *
+     * @return mixed
+     */
+    public function postLogin(AuthenticateUser $authenticator, Request $request, ThrottlesCommand $throttles)
+    {
+        $input = $request->only(['email', 'password', 'remember']);
+
+        $throttles->setRequest($request)->setLoginKey('email');
+
+        return $authenticator->login($this, $input, $throttles);
+    }
+
+    /**
+     * Response to user log-in trigger failed validation .
+     *
+     * @param  \Illuminate\Support\MessageBag|array  $errors
+     *
+     * @return mixed
+     */
+    public function userLoginHasFailedValidation($errors)
+    {
+        return redirect_with_errors(handles($this->getLoginPath()), $errors);
+    }
+
+    /**
+     * Response to user log-in trigger has failed authentication.
+     *
+     * @param  array  $input
+     *
+     * @return mixed
+     */
+    public function userLoginHasFailedAuthentication(array $input)
+    {
+        messages('error', trans('orchestra/foundation::response.credential.invalid-combination'));
+
+        return redirect(handles($this->getLoginPath()))->withInput();
+    }
+
+    /**
+     * Response to user has logged in successfully.
+     *
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
+     *
+     * @return mixed
+     */
+    public function userHasLoggedIn(Authenticatable $user)
+    {
+        messages('success', trans('orchestra/foundation::response.credential.logged-in'));
+
+        return redirect()->intended(handles('app::/'));
+    }
+
+    /**
+     * Get login path.
+     *
+     * @return string
+     */
+    protected function getLoginPath()
+    {
+        return $this->loginPath;
+    }
+}

@@ -160,7 +160,7 @@ abstract class PublishCommand extends Command
     }
 
     /**
-     * Get namespace.
+     * Get actual namespace.
      *
      * @return string
      */
