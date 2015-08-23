@@ -1,0 +1,13 @@
+
+Route::group(['namespace' => 'Auth'], function ($router) {
+    $router->group(['prefix' => 'auth'], function ($router) {
+        $router->get('login', 'AuthenticateController@show');
+        $router->post('login', 'AuthenticateController@attempt');
+        $router->get('logout', 'DeauthenticateController@logout');
+
+        $router->get('register', 'RegisterController@show');
+        $router->post('register', 'RegisterController@store');
+    });
+
+    $router->controller('password', 'PasswordController');
+});

@@ -1,0 +1,140 @@
+<?php namespace DummyNamespace;
+
+use Illuminate\Http\Request;
+use DummyRootNamespace\Http\Controllers\Controller;
+use Orchestra\Foundation\Processor\Account\ProfileCreator;
+use Orchestra\Contracts\Foundation\Listener\Account\ProfileCreator as ProfileCreatorListener;
+
+class RegisterController extends Controller implements ProfileCreatorListener
+{
+    /**
+     * Get login path.
+     *
+     * @var string
+     */
+    protected $loginPath = 'app::auth/login';
+
+    /**
+     * Get register path.
+     *
+     * @var string
+     */
+    protected $registerPath = 'app::auth/register';
+
+    /**
+     * Create a new user registration controller instance.
+     */
+    public function __construct()
+    {
+        $this->middleware('orchestra.registrable', ['only' => ['index', 'store']]);
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @param  \Orchestra\Foundation\Processor\Account\ProfileCreator  $creator
+     *
+     * @return mixed
+     */
+    public function show(ProfileCreator $creator)
+    {
+        return $creator->create($this);
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Orchestra\Foundation\Processor\Account\ProfileCreator  $creator
+     * @param  \Illuminate\Http\Request  $request
+     *
+     * @return mixed
+     */
+    public function store(ProfileCreator $creator, Request $request)
+    {
+        return $creator->store($this, $request->all());
+    }
+
+    /**
+     * Response when show registration page succeed.
+     *
+     * @param  array  $data
+     *
+     * @return mixed
+     */
+    public function showProfileCreator(array $data)
+    {
+        return view('auth.register', $data);
+    }
+
+    /**
+     * Response when create a user failed validation.
+     *
+     * @param  \Illuminate\Support\MessageBag|array  $errors
+     *
+     * @return mixed
+     */
+    public function createProfileFailedValidation($errors)
+    {
+        return redirect_with_errors(handles($this->getRegisterPath()), $errors);
+    }
+
+    /**
+     * Response when create a user failed.
+     *
+     * @param  array  $errors
+     *
+     * @return mixed
+     */
+    public function createProfileFailed(array $errors)
+    {
+        messages('error', trans('orchestra/foundation::response.db-failed', $errors));
+
+        return redirect(handles($this->getRegisterPath()))->withInput();
+    }
+
+    /**
+     * Response when create a user succeed but unable to notify the user.
+     *
+     * @return mixed
+     */
+    public function profileCreatedWithoutNotification()
+    {
+        messages('success', trans('orchestra/foundation::response.users.create'));
+        messages('error', trans('orchestra/foundation::response.credential.register.email-fail'));
+
+        return redirect(handles($this->getLoginPath()));
+    }
+
+    /**
+     * Response when create a user succeed with notification.
+     *
+     * @return mixed
+     */
+    public function profileCreated()
+    {
+        messages('success', trans('orchestra/foundation::response.users.create'));
+        messages('success', trans('orchestra/foundation::response.credential.register.email-send'));
+
+        return redirect(handles($this->getLoginPath()));
+    }
+
+    /**
+     * Get login path.
+     *
+     * @return string
+     */
+    protected function getLoginPath()
+    {
+        return $this->loginPath;
+    }
+
+    /**
+     * Get register path.
+     *
+     * @return string
+     */
+    protected function getRegisterPath()
+    {
+        return $this->registerPath;
+    }
+}

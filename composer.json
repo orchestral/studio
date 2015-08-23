@@ -1,33 +1,36 @@
 {
-	"name": "orchestra/studio",
-	"description": "Code Generator for Orchestra Platform",
-	"keyword": ["orchestra-platform", "orchestral", "code-generator"],
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Mior Muhammad Zaki",
-			"email": "crynobone@gmail.com",
-			"homepage": "https://github.com/crynobone"
-		}
-	],
-	"autoload": {
-		"psr-4": {
-			"Orchestra\\Studio\\" : "src/"
-		}
-	},
-	"require": {
-		"php": ">=5.5.0",
-		"orchestra/support": "~3.2.0",
-		"wikimedia/composer-merge-plugin": "~1.1"
-	},
-	"require-dev": {
-		"mockery/mockery": "0.9.*",
-		"illuminate/console": "~5.2.0"
-	},
-	"extra": {
-		"branch-alias": {
-			"dev-master": "3.2-dev"
-		}
-	},
-	"minimum-stability": "dev"
+    "name": "orchestra/studio",
+    "description": "Code Generator for Orchestra Platform",
+    "keyword": ["orchestra-platform", "orchestral", "code-generator"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mior Muhammad Zaki",
+            "email": "crynobone@gmail.com",
+            "homepage": "https://github.com/crynobone"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Orchestra\\Studio\\" : "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "orchestra/support": "~3.2.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "0.9.*",
+        "illuminate/console": "~5.2.0",
+        "illuminate/filesystem": "~5.2.0"
+    },
+    "suggest": {
+        "wikimedia/composer-merge-plugin": "Add workbench support for Orchestra Platform (~1.1)."
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.2-dev"
+        }
+    },
+    "minimum-stability": "dev"
 }

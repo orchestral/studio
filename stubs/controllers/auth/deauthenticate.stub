@@ -1,0 +1,38 @@
+<?php namespace DummyNamespace;
+
+use DummyRootNamespace\Http\Controllers\Controller;
+use Orchestra\Foundation\Processor\DeauthenticateUser;
+use Orchestra\Contracts\Auth\Listener\DeauthenticateUser as DeauthenticateListener;
+
+class DeauthenticateController extends Controller implements DeauthenticateListener
+{
+    /**
+     * Create a new deauthentication controller instance.
+     */
+    public function __construct()
+    {
+        $this->middleware('guest', ['except' => 'logout']);
+    }
+
+    /**
+     * Log the user out of the application.
+     *
+     * @param  \Orchestra\Foundation\Processor\DeauthenticateUser  $authenticator
+     *
+     * @return mixed
+     */
+    public function logout(DeauthenticateUser $authenticator)
+    {
+        return $authenticator->logout($this);
+    }
+
+    /**
+     * Response to user has logged out successfully.
+     *
+     * @return mixed
+     */
+    public function userHasLoggedOut()
+    {
+        return redirect(handles('app::/'));
+    }
+}
