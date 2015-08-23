@@ -39,7 +39,7 @@ abstract class PublishCommand extends Command
     {
         $this->publishFiles();
 
-        if ($this->confirm('Do you wish to append routes? [y|N]')) {
+        if ($this->option('routes') || $this->confirm('Do you wish to append routes? [y|N]')) {
             $this->appendRoutes();
         }
 
@@ -208,6 +208,7 @@ abstract class PublishCommand extends Command
     {
         return [
             ['force', null, InputOption::VALUE_NONE, 'Overwrite any existing files.'],
+            ['routes', null, InputOption::VALUE_NONE, 'Publish with routes.'],
         ];
     }
 
