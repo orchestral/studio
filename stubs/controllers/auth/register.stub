@@ -8,14 +8,6 @@ use Orchestra\Contracts\Foundation\Listener\Account\ProfileCreator as ProfileCre
 class RegisterController extends Controller implements ProfileCreatorListener
 {
     /**
-     * Create a new user registration controller instance.
-     */
-    public function __construct()
-    {
-        $this->beforeFilter('orchestra.registrable', ['only' => ['index', 'store']]);
-    }
-
-    /**
      * Get login path.
      *
      * @var string
@@ -28,6 +20,14 @@ class RegisterController extends Controller implements ProfileCreatorListener
      * @var string
      */
     protected $registerPath = 'app::auth/register';
+
+    /**
+     * Create a new user registration controller instance.
+     */
+    public function __construct()
+    {
+        $this->middleware('orchestra.registrable', ['only' => ['index', 'store']]);
+    }
 
     /**
      * Show the application registration form.

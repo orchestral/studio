@@ -41,7 +41,10 @@
         </div>
     </header>
 
-    @include('orchestra/foundation::components.messages')
+    <div class="container-fluid">
+        @include('orchestra/foundation::components.messages')
+    </div>
+
     @yield('content')
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
