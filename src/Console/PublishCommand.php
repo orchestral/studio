@@ -148,11 +148,10 @@ abstract class PublishCommand extends Command
      * Replace the namespace for the given stub.
      *
      * @param  string  $stub
-     * @param  string  $name
      *
      * @return $this
      */
-    protected function replaceNamespace($stub, $name)
+    protected function replaceNamespace($stub)
     {
         $stub = str_replace('DummyNamespace', $this->getNamespace(), $stub);
         $stub = str_replace('DummyRootNamespace', $this->laravel->getNamespace(), $stub);
