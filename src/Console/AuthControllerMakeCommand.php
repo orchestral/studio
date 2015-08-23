@@ -3,6 +3,19 @@
 class AuthControllerMakeCommand extends PublishCommand
 {
     /**
+     * The console command name.
+     *
+     * @var string
+     */
+    protected $name = 'make:auth-controller';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Create auth boilerplate controllers and views';
+    /**
      * Get actual namespace.
      *
      * @return string
