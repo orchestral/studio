@@ -29,7 +29,7 @@ class AuthenticateController extends Controller implements AuthenticateListener
      *
      * @return mixed
      */
-    public function getLogin()
+    public function login()
     {
         return view('auth.login');
     }
@@ -42,7 +42,7 @@ class AuthenticateController extends Controller implements AuthenticateListener
      *
      * @return mixed
      */
-    public function postLogin(AuthenticateUser $authenticator, Request $request, ThrottlesCommand $throttles)
+    public function attempt(AuthenticateUser $authenticator, Request $request, ThrottlesCommand $throttles)
     {
         $input = $request->only(['email', 'password', 'remember']);
 

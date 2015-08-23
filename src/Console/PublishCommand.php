@@ -154,7 +154,7 @@ abstract class PublishCommand extends Command
     protected function replaceNamespace($stub)
     {
         $stub = str_replace('DummyNamespace', $this->getNamespace(), $stub);
-        $stub = str_replace('DummyRootNamespace', $this->laravel->getNamespace(), $stub);
+        $stub = str_replace('DummyRootNamespace', trim($this->laravel->getNamespace(), '\\'), $stub);
 
         return $stub;
     }

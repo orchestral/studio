@@ -1,4 +1,4 @@
-@extends('auth.layout')
+@extends('app')
 
 @set_meta('title', 'Login')
 
@@ -24,9 +24,9 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Username</label>
+                            <label class="col-md-4 control-label">E-mail Address</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="username" value="{{ old('username') }}">
+                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
                             </div>
                         </div>
 
