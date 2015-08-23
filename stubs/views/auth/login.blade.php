@@ -1,4 +1,4 @@
-@extends('layouts.front')
+@extends('auth.layout')
 
 @set_meta('title', 'Login')
 
