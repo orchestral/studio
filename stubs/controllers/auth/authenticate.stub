@@ -29,7 +29,7 @@ class AuthenticateController extends Controller implements AuthenticateListener
      *
      * @return mixed
      */
-    public function login()
+    public function show()
     {
         return view('auth.login');
     }

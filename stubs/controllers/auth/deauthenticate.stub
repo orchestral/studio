@@ -7,7 +7,7 @@ use Orchestra\Contracts\Auth\Listener\DeauthenticateUser as DeauthenticateListen
 class DeauthenticateController extends Controller implements DeauthenticateListener
 {
     /**
-     * Create a new authentication controller instance.
+     * Create a new deauthentication controller instance.
      */
     public function __construct()
     {
