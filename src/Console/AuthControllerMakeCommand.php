@@ -50,7 +50,7 @@ class AuthControllerMakeCommand extends PublishCommand
      *
      * @return array
      */
-    abstract protected function getRoutesFile()
+    protected function getRoutesFile()
     {
         return __DIR__.'/../../stubs/routes/auth.stub';
     }
