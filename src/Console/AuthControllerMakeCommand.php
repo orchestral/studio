@@ -17,7 +17,7 @@ class AuthControllerMakeCommand extends PublishCommand
      *
      * @return array
      */
-    abstract protected function publishes()
+    protected function publishes()
     {
         $stub = __DIR__.'/../../stubs';
 
