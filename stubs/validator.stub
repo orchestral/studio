@@ -1,0 +1,20 @@
+<?php namespace DummyNamespace;
+
+use Orchestra\Support\Validator;
+
+class DummyClass extends Validator
+{
+    /**
+     * List of rules.
+     *
+     * @var array
+     */
+    protected $rules = [];
+
+    /**
+     * List of events.
+     *
+     * @var array
+     */
+    protected $events = [];
+}
