@@ -1,0 +1,23 @@
+<?php namespace DummyNamespace;
+
+use Orchestra\Authorization\Policy as AuthorizationPolicy;
+
+class DummyClass extends AuthorizationPolicy
+{
+    /**
+     * Authorization driver name.
+     *
+     * @var string
+     */
+    protected $name = 'orchestra';
+
+    /**
+     * Create a new policy instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+}

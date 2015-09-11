@@ -11,10 +11,10 @@ class DummyClass extends Validator
      */
     protected $rules = [];
 
-     /**
-      * List of events.
-      *
-      * @var array
-      */
-     protected $events = [];
+    /**
+     * List of events.
+     *
+     * @var array
+     */
+    protected $events = [];
 }
