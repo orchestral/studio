@@ -21,6 +21,7 @@ class StudioServiceProvider extends ServiceProvider
         'ContractMake'       => 'orchestra.studio.command.contract.make',
         'FilterMake'         => 'orchestra.studio.command.filter.make',
         'MenuMake'           => 'orchestra.studio.command.menu.make',
+        'PolicyMake'         => 'orchestra.studio.command.policy.make',
         'ValidatorMake'      => 'orchestra.studio.command.validator.make',
     ];
 
