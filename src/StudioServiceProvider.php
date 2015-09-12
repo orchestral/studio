@@ -20,6 +20,7 @@ class StudioServiceProvider extends ServiceProvider
         'AuthControllerMake' => 'orchestra.studio.command.contract.auth-controller',
         'ContractMake'       => 'orchestra.studio.command.contract.make',
         'MenuMake'           => 'orchestra.studio.command.menu.make',
+        'PolicyMake'         => 'orchestra.studio.command.policy.make',
         'ValidatorMake'      => 'orchestra.studio.command.validator.make',
     ];
 

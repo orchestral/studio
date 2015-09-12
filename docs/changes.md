@@ -5,6 +5,12 @@ title: Studio Change Log
 
 ## Version 3.1 {#v3-0}
 
+### v3.1.2 {#v3-1-2}
+
+* Add generator commands:
+  - `make:acl-policy`
+* Fixes `validator.stub` indentation.
+
 ### v3.1.1 {#v3-1-1}
 
 * Add reusable `Orchestra\Studio\Console\PublishCommand`.

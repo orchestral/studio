@@ -73,7 +73,7 @@ abstract class PublishCommand extends Command
      */
     protected function appendRoutes()
     {
-        $file = $this->getRoutesFile();
+        $file      = $this->getRoutesFile();
         $routeFile = app_path('Http/routes.php');
 
         if ($this->files->exists($routeFile) && $this->files->exists($file)) {
