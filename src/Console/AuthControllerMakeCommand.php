@@ -1,5 +1,6 @@
 <?php namespace Orchestra\Studio\Console;
 
+use Illuminate\Filesystem\Filesystem;
 use Orchestra\Studio\Traits\PublishRoutesTrait;
 
 class AuthControllerMakeCommand extends PublishCommand

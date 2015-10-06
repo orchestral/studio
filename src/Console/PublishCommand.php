@@ -16,7 +16,7 @@ abstract class PublishCommand extends Command
      */
     public function handle(Filesystem $filesystem)
     {
-        $this->publishing($Filesystem, $this->option('force'));
+        $this->publishing($filesystem, $this->option('force'));
 
         $this->info('Publishing complete!');
     }

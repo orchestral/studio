@@ -9,6 +9,7 @@ trait PublishRoutesTrait
      *
      * @param  \Illuminate\Filesystem\Filesystem  $filesystem
      * @param  string|null  $route
+     *
      * @return void
      */
     protected function publishRoute(Filesystem $filesystem, $route)
