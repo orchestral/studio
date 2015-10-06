@@ -5,6 +5,11 @@ title: Studio Change Log
 
 ## Version 3.1 {#v3-0}
 
+### v3.1.3 {#v3-1-3}
+
+* Refactor `Orchestra\Studio\Console\PublishCommand` and move publishing files and routes to separate trait.
+* Add `guest` middleware to user registration controller stub.
+
 ### v3.1.2 {#v3-1-2}
 
 * Add generator commands:

@@ -26,6 +26,7 @@ class RegisterController extends Controller implements ProfileCreatorListener
      */
     public function __construct()
     {
+        $this->middleware('guest');
         $this->middleware('orchestra.registrable', ['only' => ['index', 'store']]);
     }
 
