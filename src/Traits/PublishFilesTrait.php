@@ -45,7 +45,7 @@ trait PublishFilesTrait
             return;
         }
 
-        $content = $this->buildFile($from);
+        $content = $this->replaceNamespace($filesystem->get($from));
 
         $this->createParentDirectory(dirname($to));
         $filesystem->put($to, $content);
@@ -92,19 +92,6 @@ trait PublishFilesTrait
         if (! $filesystem->isDirectory($directory)) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
-    }
-
-    /**
-     * Build the file with the given path.
-     *
-     * @param  \Illuminate\Filesystem\Filesystem  $filesystem
-     * @param  string  $path
-     *
-     * @return string
-     */
-    protected function buildFile(Filesystem $filesystem, $path)
-    {
-        return $this->replaceNamespace($filesystem->get($path));
     }
 
     /**
