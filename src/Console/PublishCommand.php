@@ -38,10 +38,7 @@ abstract class PublishCommand extends Command
     public function handle()
     {
         $this->publishFiles();
-
-        if ($this->option('routes') || $this->confirm('Do you wish to append routes? [y|N]')) {
-            $this->appendRoutes();
-        }
+        $this->publishRoutes();
 
         $this->info('Publishing complete!');
     }
@@ -63,22 +60,6 @@ abstract class PublishCommand extends Command
             } else {
                 $this->error("Can't locate path: <{$from}>");
             }
-        }
-    }
-
-    /**
-     * Appends routes.
-     *
-     * @return void
-     */
-    protected function appendRoutes()
-    {
-        $file      = $this->getRoutesFile();
-        $routeFile = app_path('Http/routes.php');
-
-        if ($this->files->exists($routeFile) && $this->files->exists($file)) {
-            $this->files->append($routeFile, $this->buildFile($file));
-            $this->line('<info>Append routes from</info> <comment>['.$file.']</comment>');
         }
     }
 
@@ -140,6 +121,39 @@ abstract class PublishCommand extends Command
     {
         if (! $this->files->isDirectory($directory)) {
             $this->files->makeDirectory($directory, 0755, true);
+        }
+    }
+
+    /**
+     * Publish routes.
+     *
+     * @return void
+     */
+    protected function publishRoutes()
+    {
+        $file = method_exists($this, 'getRoutesFile') ? $this->getRoutesFile() : null;
+
+        if ($this->option('routes') || $this->confirm('Do you wish to append routes? [y|N]')) {
+            $this->appendRoutes($file);
+        }
+    }
+
+    /**
+     * Appends routes.
+     *
+     * @return void
+     */
+    protected function publishRoute($file)
+    {
+        if (is_null($file)) {
+            return ;
+        }
+
+        $routeFile = app_path('Http/routes.php');
+
+        if ($this->files->exists($routeFile) && $this->files->exists($file)) {
+            $this->files->append($routeFile, $this->buildFile($file));
+            $this->line('<info>Append routes from</info> <comment>['.$file.']</comment>');
         }
     }
 
@@ -222,7 +236,7 @@ abstract class PublishCommand extends Command
     /**
      * Get routes file.
      *
-     * @return array
+     * @return string|null
      */
     abstract protected function getRoutesFile();
 }
