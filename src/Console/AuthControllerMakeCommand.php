@@ -1,7 +1,11 @@
 <?php namespace Orchestra\Studio\Console;
 
+use Orchestra\Studio\Traits\PublishRoutesTrait;
+
 class AuthControllerMakeCommand extends PublishCommand
 {
+    use PublishRoutesTrait;
+
     /**
      * The console command name.
      *
@@ -15,6 +19,23 @@ class AuthControllerMakeCommand extends PublishCommand
      * @var string
      */
     protected $description = 'Create auth boilerplate controllers and views';
+
+    /**
+     * Publishing command.
+     *
+     * @param  \Illuminate\Filesystem\Filesystem  $filesystem
+     * @param  bool    $force
+     *
+     * @return void
+     */
+    protected function publishing(Filesystem $filesystem, $force = false)
+    {
+        parent::publishing($filesystem, $force);
+
+        if ($this->option('routes') || $this->confirm('Do you wish to append routes? [y|N]')) {
+            $this->publishRoute($filesystem, $this->getRoutesFile());
+        }
+    }
 
     /**
      * Get actual namespace.
