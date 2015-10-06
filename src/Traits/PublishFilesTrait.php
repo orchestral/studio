@@ -47,7 +47,7 @@ trait PublishFilesTrait
 
         $content = $this->replaceNamespace($filesystem->get($from));
 
-        $this->createParentDirectory(dirname($to));
+        $this->createParentDirectory($filesystem, dirname($to));
         $filesystem->put($to, $content);
 
         $this->status($from, $to, 'File');
