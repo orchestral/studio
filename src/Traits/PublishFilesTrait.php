@@ -20,9 +20,9 @@ trait PublishFilesTrait
     {
         foreach ($paths as $from => $to) {
             if ($filesystem->isFile($from)) {
-                $this->publishFile($filesystem, $from, $to);
+                $this->publishFile($filesystem, $from, $to, $force);
             } elseif ($filesystem->isDirectory($from)) {
-                $this->publishDirectory($from, $to);
+                $this->publishDirectory($from, $to, $force);
             } else {
                 $this->error("Can't locate path: <{$from}>");
             }
