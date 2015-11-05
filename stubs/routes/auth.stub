@@ -9,5 +9,10 @@ Route::group(['namespace' => 'Auth'], function ($router) {
         $router->post('register', 'RegisterController@store');
     });
 
-    $router->controller('password', 'PasswordController');
+    $router->group(['prefix' => 'password'], function ($router) {
+        $router->get('email', 'PasswordController@getEmail');
+        $router->post('email', 'PasswordController@postEmail');
+        $router->get('reset/{token}', 'PasswordController@getReset');
+        $router->post('reset', 'PasswordController@postReset');
+    });
 });
