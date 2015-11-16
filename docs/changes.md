@@ -5,6 +5,10 @@ title: Studio Change Log
 
 ## Version 3.1 {#v3-0}
 
+### v3.1.4 {#v3-1-4}
+
+* Passes `$force` value to downstream.
+
 ### v3.1.3 {#v3-1-3}
 
 * Refactor `Orchestra\Studio\Console\PublishCommand` and move publishing files and routes to separate trait.
