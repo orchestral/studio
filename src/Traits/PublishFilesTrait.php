@@ -119,7 +119,7 @@ trait PublishFilesTrait
      *
      * @return void
      */
-    abstract public function error($string, $verbosity = NULL);
+    abstract public function error($string, $verbosity = null);
 
     /**
      * Write a string as standard output.
