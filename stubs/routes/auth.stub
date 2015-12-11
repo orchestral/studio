@@ -1,5 +1,5 @@
 
-Route::group(['namespace' => 'Auth'], function ($router) {
+Route::group(['namespace' => 'Auth', 'middleware' => ['web']], function ($router) {
     $router->group(['prefix' => 'auth'], function ($router) {
         $router->get('login', 'AuthenticateController@show');
         $router->post('login', 'AuthenticateController@attempt');
@@ -9,7 +9,7 @@ Route::group(['namespace' => 'Auth'], function ($router) {
         $router->post('register', 'RegisterController@store');
     });
 
-    $router->group(['prefix' => 'password'], function ($router) {
+    $router->group(['prefix' => 'password', 'middleware' => ['web']], function ($router) {
         $router->get('email', 'PasswordController@getEmail');
         $router->post('email', 'PasswordController@postEmail');
         $router->get('reset/{token}', 'PasswordController@getReset');
