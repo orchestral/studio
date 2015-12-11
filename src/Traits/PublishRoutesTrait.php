@@ -31,10 +31,12 @@ trait PublishRoutesTrait
      * Write a string as standard output.
      *
      * @param  string  $string
+     * @param  string  $style
+     * @param  null|int|string  $verbosity
      *
      * @return void
      */
-    abstract public function line($string);
+    abstract public function line($string, $style = null, $verbosity = null);
 
     /**
      * Get routes file.
