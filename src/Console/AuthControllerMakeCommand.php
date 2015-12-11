@@ -63,8 +63,8 @@ class AuthControllerMakeCommand extends PublishCommand
             "{$stub}/controllers/auth/register.stub"       => app_path('Http/Controllers/Auth/RegisterController.php'),
             "{$stub}/controllers/auth/password.stub"       => app_path('Http/Controllers/Auth/PasswordController.php'),
 
-            "{$stub}/views/app.blade.php" => base_path('resources/views/app.blade.php'),
-            "{$stub}/views/auth"          => base_path('resources/views/auth'),
+            "{$stub}/views/layouts" => base_path('resources/views/layouts'),
+            "{$stub}/views/auth"    => base_path('resources/views/auth'),
         ];
     }
 
