@@ -115,19 +115,22 @@ trait PublishFilesTrait
      * Write a string as error output.
      *
      * @param  string  $string
+     * @param  null|int|string  $verbosity
      *
      * @return void
      */
-    abstract public function error($string);
+    abstract public function error($string, $verbosity = null);
 
     /**
      * Write a string as standard output.
      *
      * @param  string  $string
+     * @param  string  $style
+     * @param  null|int|string  $verbosity
      *
      * @return void
      */
-    abstract public function line($string);
+    abstract public function line($string, $style = null, $verbosity = null);
 
     /**
      * Replace the namespace for the given stub.

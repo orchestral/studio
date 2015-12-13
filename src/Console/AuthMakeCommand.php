@@ -3,7 +3,7 @@
 use Illuminate\Filesystem\Filesystem;
 use Orchestra\Studio\Traits\PublishRoutesTrait;
 
-class AuthControllerMakeCommand extends PublishCommand
+class AuthMakeCommand extends PublishCommand
 {
     use PublishRoutesTrait;
 
@@ -12,14 +12,14 @@ class AuthControllerMakeCommand extends PublishCommand
      *
      * @var string
      */
-    protected $name = 'make:auth-controller';
+    protected $name = 'make:auth';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create auth boilerplate controllers and views';
+    protected $description = 'Scaffold basic login and registration views and routes';
 
     /**
      * Publishing command.
@@ -63,8 +63,8 @@ class AuthControllerMakeCommand extends PublishCommand
             "{$stub}/controllers/auth/register.stub"       => app_path('Http/Controllers/Auth/RegisterController.php'),
             "{$stub}/controllers/auth/password.stub"       => app_path('Http/Controllers/Auth/PasswordController.php'),
 
-            "{$stub}/views/app.blade.php" => base_path('resources/views/app.blade.php'),
-            "{$stub}/views/auth"          => base_path('resources/views/auth'),
+            "{$stub}/views/layouts" => base_path('resources/views/layouts'),
+            "{$stub}/views/auth"    => base_path('resources/views/auth'),
         ];
     }
 

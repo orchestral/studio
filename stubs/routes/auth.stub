@@ -1,5 +1,5 @@
 
-Route::group(['namespace' => 'Auth'], function ($router) {
+Route::group(['namespace' => 'Auth', 'middleware' => ['web']], function ($router) {
     $router->group(['prefix' => 'auth'], function ($router) {
         $router->get('login', 'AuthenticateController@show');
         $router->post('login', 'AuthenticateController@attempt');

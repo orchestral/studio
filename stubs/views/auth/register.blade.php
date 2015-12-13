@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @set_meta('title', 'Register')
 
