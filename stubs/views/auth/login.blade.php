@@ -20,7 +20,7 @@
                         </div>
                     @endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ handles('app::auth/login') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ handles('app::login') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group">
