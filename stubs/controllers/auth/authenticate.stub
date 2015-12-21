@@ -14,7 +14,7 @@ class AuthenticateController extends Controller implements AuthenticateListener
      *
      * @var string
      */
-    protected $loginPath = 'app::auth/login';
+    protected $loginPath = 'app::login';
 
     /**
      * Create a new authentication controller instance.

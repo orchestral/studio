@@ -12,14 +12,14 @@ class RegisterController extends Controller implements ProfileCreatorListener
      *
      * @var string
      */
-    protected $loginPath = 'app::auth/login';
+    protected $loginPath = 'app::login';
 
     /**
      * Get register path.
      *
      * @var string
      */
-    protected $registerPath = 'app::auth/register';
+    protected $registerPath = 'app::register';
 
     /**
      * Create a new user registration controller instance.
