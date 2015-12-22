@@ -25,16 +25,18 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                @if (is_null($user = Auth::user()))
-                    <li><a href="{!! handles('app::auth/login') !!}">Login</a></li>
-                    <li><a href="{!! handles('app::auth/register') !!}">Register</a></li>
+                @unless (is_null($user = Auth::user()))
+                    <li class="dropdown" id="user-menu">
+                        <a href="#user-menu" rel="user-menu" class="dropdown-toggle" data-toggle="dropdown">{{ $user->fullname }}</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{!! handles('app::logout') !!}">Logout</a></li>
+                        </ul>
+                    </li>
                 @else
-                <li class="dropdown" id="user-menu">
-                    <a href="#user-menu" rel="user-menu" class="dropdown-toggle" data-toggle="dropdown">{{ $user->fullname }}</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{!! handles('app::auth/logout') !!}">Logout</a></li>
-                    </ul>
-                </li>
+                    <li><a href="{!! handles('app::login') !!}">Login</a></li>
+                    @if (memorize('site.registrable', false))
+                    <li><a href="{!! handles('app::register') !!}">Register</a></li>
+                    @endif
                 @endif
                 </ul>
             </nav>
