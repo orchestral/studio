@@ -3,7 +3,18 @@ title: Studio Change Log
 
 ---
 
-## Version 3.1 {#v3-0}
+## Version 3.2 {#v3-2}
+
+### v3.2.0 {#v3-2-0}
+
+* Update support to Laravel Framework v5.2.
+* Add reusable `Orchestra\Studio\Console\PublishCommand`.
+* Add `guest` middleware to user registration controller stub.
+* Add generator commands:
+  - `make:auth`
+  - `make:acl-policy`
+
+## Version 3.1 {#v3-1}
 
 ### v3.1.4 {#v3-1-4}
 
