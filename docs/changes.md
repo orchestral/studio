@@ -3,7 +3,7 @@ title: Studio Change Log
 
 ---
 
-## Version 3.1 {#v3-0}
+## Version 3.1 {#v3-1}
 
 ### v3.1.4 {#v3-1-4}
 
