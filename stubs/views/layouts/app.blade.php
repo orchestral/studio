@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
-<body id="{!! get_meta('html::body.id') !!}">
+<body id="{!! get_meta('html::body.id', 'app') !!}">
     <header class="navbar navbar-default white" role="banner">
         <div class="container">
             <div class="navbar-header">
