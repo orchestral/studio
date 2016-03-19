@@ -52,6 +52,21 @@ class AuthenticateController extends Controller implements AuthenticateListener
     }
 
     /**
+     * Redirect the user after determining they are locked out.
+     *
+     * @param  array  $input
+     * @param  int  $seconds
+     *
+     * @return mixed
+     */
+    public function sendLockoutResponse(array $input, $seconds)
+    {
+        messages('error', trans('auth.throttle', ['seconds' => $seconds]);
+
+        return redirect(handles($this->getLoginPath()))->withInput();
+    }
+
+    /**
      * Response to user log-in trigger failed validation .
      *
      * @param  \Illuminate\Support\MessageBag|array  $errors
