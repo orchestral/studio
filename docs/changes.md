@@ -5,6 +5,12 @@ title: Studio Change Log
 
 ## Version 3.2 {#v3-2}
 
+### v3.2.2 {#v3-2-2}
+
+* Add `sendLockoutResponse()` to `AuthenticateController` stub.
+* Add `Orchestra\Studio\Traits\PublishFiles` and deprecate `Orchestra\Studio\Traits\PublishFilesTrait`.
+* Add `Orchestra\Studio\Traits\PublishRoutes` and deprecate `Orchestra\Studio\Traits\PublishRoutesTrait`.
+
 ### v3.2.1 {#v3-2-1}
 
 * Fixes password broker controller stub to call the correct method when `$token` is null.
