@@ -1,11 +1,11 @@
 <?php namespace Orchestra\Studio\Console;
 
 use Illuminate\Filesystem\Filesystem;
-use Orchestra\Studio\Traits\PublishRoutesTrait;
+use Orchestra\Studio\Traits\PublishRoutes;
 
 class AuthMakeCommand extends PublishCommand
 {
-    use PublishRoutesTrait;
+    use PublishRoutes;
 
     /**
      * The console command name.
