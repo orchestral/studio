@@ -2,12 +2,12 @@
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Orchestra\Studio\Traits\PublishFilesTrait;
+use Orchestra\Studio\Traits\PublishFiles;
 use Symfony\Component\Console\Input\InputOption;
 
 abstract class PublishCommand extends Command
 {
-    use PublishFilesTrait;
+    use PublishFiles;
 
     /**
      * Execute the console command.
