@@ -1,4 +1,6 @@
-<?php namespace DummyNamespace;
+<?php
+
+namespace DummyNamespace;
 
 use DummyRootNamespace\Http\Controllers\Controller;
 use Orchestra\Foundation\Processor\DeauthenticateUser;

@@ -1,4 +1,6 @@
-<?php namespace DummyNamespace;
+<?php
+
+namespace DummyNamespace;
 
 use Orchestra\Foundation\Support\MenuHandler;
 use Orchestra\Contracts\Authorization\Authorization;
