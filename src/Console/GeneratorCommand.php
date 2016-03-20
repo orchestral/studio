@@ -1,4 +1,6 @@
-<?php namespace Orchestra\Studio\Console;
+<?php
+
+namespace Orchestra\Studio\Console;
 
 use Illuminate\Console\GeneratorCommand as BaseCommand;
 

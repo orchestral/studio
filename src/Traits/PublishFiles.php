@@ -1,4 +1,6 @@
-<?php namespace Orchestra\Studio\Traits;
+<?php
+
+namespace Orchestra\Studio\Traits;
 
 use League\Flysystem\MountManager;
 use Illuminate\Filesystem\Filesystem;
