@@ -5,6 +5,10 @@ title: Studio Change Log
 
 ## Version 3.2 {#v3-2}
 
+### v3.2.3 {#v3-2-3}
+
+* Use Laravel standard on opening tag/namespace.
+
 ### v3.2.2 {#v3-2-2}
 
 * Add `sendLockoutResponse()` to `AuthenticateController` stub.
@@ -25,6 +29,13 @@ title: Studio Change Log
   - `make:acl-policy`
 
 ## Version 3.1 {#v3-1}
+
+### v3.1.5 {#v3-1-5}
+
+* Avoid using `Router::controller` as it's potentially going to be deprecated soon.
+* Add `sendLockoutResponse()` to `AuthenticateController` stub.
+* Add `Orchestra\Studio\Traits\PublishFiles` and deprecate `Orchestra\Studio\Traits\PublishFilesTrait`.
+* Add `Orchestra\Studio\Traits\PublishRoutes` and deprecate `Orchestra\Studio\Traits\PublishRoutesTrait`.
 
 ### v3.1.4 {#v3-1-4}
 
