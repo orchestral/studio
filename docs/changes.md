@@ -5,6 +5,10 @@ title: Studio Change Log
 
 ## Version 3.2 {#v3-2}
 
+### v3.2.3 {#v3-2-3}
+
+* Use Laravel standard on opening tag/namespace.
+
 ### v3.2.2 {#v3-2-2}
 
 * Add `sendLockoutResponse()` to `AuthenticateController` stub.
