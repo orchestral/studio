@@ -20,6 +20,7 @@ class StudioServiceProvider extends ServiceProvider
      */
     protected $generators = [
         'AuthMake'      => 'command.auth.make',
+        'AssetMake'     => 'orchestra.studio.command.make.asset',
         'ContractMake'  => 'orchestra.studio.command.contract.make',
         'MenuMake'      => 'orchestra.studio.command.menu.make',
         'PolicyMake'    => 'orchestra.studio.command.policy.make',
