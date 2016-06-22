@@ -55,6 +55,7 @@ class AuthMakeCommand extends PublishCommand
         $foundation = "{$base}/foundation/resources";
 
         return [
+            "{$stub}/.bowerrc"    => base_path('.bowerrc'),
             "{$stub}/bower.json"  => base_path('bower.json'),
             "{$stub}/gulpfile.js" => base_path('gulpfile.js'),
             "{$stub}/paths.js"    => base_path('paths.js'),
