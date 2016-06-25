@@ -4,7 +4,7 @@ namespace Orchestra\Studio\Console;
 
 use Illuminate\Filesystem\Filesystem;
 
-class AuthMakeCommand extends PublishCommand
+class AssetMakeCommand extends PublishCommand
 {
     /**
      * The console command name.
