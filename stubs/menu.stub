@@ -13,11 +13,11 @@ class DummyClass extends MenuHandler
      * @var array
      */
     protected $menu = [
-        'id'       => null,
+        'id' => null,
         'position' => '*',
-        'title'    => null,
-        'link'     => '#',
-        'icon'     => null,
+        'title' => null,
+        'link' => '#',
+        'icon' => null,
     ];
 
     /**
